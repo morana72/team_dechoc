@@ -7,4 +7,6 @@
 		// arguments :
 		// 1: GET ou POST (ou les deux), 2: URL saisie par l'internaute, 3: nom du controller # nom de sa méthode appelée, 4: nom de la route
 		['GET|POST', '/inscription', 'User#setUser', 'inscription'],
+		['GET', '/musees', 'Endroit#afficherMusees', 'musees'],
+		['GET', '/ballades', 'Endroit#afficherBallades', 'ballades'],
 	);
