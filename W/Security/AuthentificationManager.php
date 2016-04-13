@@ -23,14 +23,14 @@ class AuthentificationManager
 		$usernameOrEmail = strip_tags(trim($usernameOrEmail));
 		$foundUser = $userManager->getUserByUsernameOrEmail($usernameOrEmail);
 		if (!$foundUser){
-			return 0;
+			return 'absent';
 		}
 
 		if (password_verify($plainPassword, $foundUser[$app->getConfig('security_password_property')])){
 			return (int) $foundUser[$app->getConfig('security_id_property')];
 		}
 
-		return 0;
+		return 'interdit';
 	}
 
 	/**

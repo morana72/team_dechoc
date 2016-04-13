@@ -6,8 +6,8 @@
  * Time: 16:14
  */
 namespace Manager; // je recupere le namespace du Manager general qui se trouve dans le dossier W
-use W\Manager\Manager; // j'importe la classe Manager, avec un USE pour avoir le chemin relatif
-class MembreManager extends Manager // je fais un extend en chemin relatif
+use W\Manager\UserManager; // j'importe la classe Manager, avec un USE pour avoir le chemin relatif
+class MembreManager extends UserManager // je fais un extend en chemin relatif
 {
-    public function 
+
 }

@@ -23,6 +23,17 @@ class EndroitController extends Controller
 	{
 		$this->show('endroits/ballades');
 	}
+	
+	/**
+	 * Page d'affichage des monuments
+	 */
+	public function afficherMonuments()
+	{
+		$this->show('endroits/monuments');
+	}
 
-
+	public function afficherPanoramas()
+	{
+		$this->show('endroits/panoramas');
+	}
 }

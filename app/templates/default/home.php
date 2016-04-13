@@ -9,7 +9,9 @@
 		<section>
 			<article>
 				<h2 class="lo_h2">Ce que je veux faire ou visiter: </h2>
-
+				<?php if(!empty($this->e($msg))) : ?>
+					<div class="alert-<?= $this->e($type) ?>"> <?= $this->e($msg) ?></div>
+				<?php endif; ?>
 				<!-- Formulaire qui sera placé sur la carte avec un fond blanc transparent -->
 				<form action="">
 					<input type="checkbox" name="check" value="Les monuments"> Les monuments <br>
@@ -28,7 +30,7 @@
 
 		<section class="pub">
 			<h2>Notre séléction du mois:<br> découvrez Paris autrement!</h2>
-			<a href="#"><img src="img/4-roues-sous-un-parapluie.jpg" alt="4 roues"></a>
+			<a href="#"><img src="<?= $this->assetUrl('img/4-roues-sous-un-parapluie.jpg') ?>" alt="4 roues"></a>
 		</section>
 </main>
 <?php $this->stop('principal') ?>

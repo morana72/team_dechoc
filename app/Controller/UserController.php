@@ -8,6 +8,9 @@ use W\Controller\Controller;
 // j'importe la classe MembreManager pour acceder à la table Membres dans la base de données
 use Manager\MembreManager;
 
+// j'importe l'authentificateur
+use W\Security\AuthentificationManager;
+
 class UserController extends Controller
 {
 	/*
@@ -15,10 +18,13 @@ class UserController extends Controller
 	 * */
 	protected $tableMembre;
 
+	protected $validator;
+
 	public function __construct()
 	{
 		// au moment où j'appel le constructeur, j'instancie le representant de la table
 		$this->tableMembre = new MembreManager();
+		$this->validator = new AuthentificationManager();
 	}
 
 	/**
@@ -30,46 +36,54 @@ class UserController extends Controller
 			'prenom' => 'Bruce',
 			'nom' => 'WAYNE',
 		];
-		$this->show('user/profil',$user);
+		$this->show('user/profil', $user);
 	}
 
-	/**
-	 * Méthode pour afficher les infos du profil
-	 */
-	public function setUser()
-	{
-		// je vais chercher le template "inscription.php" dans le chemin templates/user/inscription.php
-	if(isset($_POST['envoi'])) {
-            
-       
- // je cree un tableau ave toutes les             
-if(!empty($prenom) && !empty($nom) && !empty($email) && !empty($mot_de_passe) && !empty($genre) && !empty($telephone) && !empty($ville) && !empty($code_postal) && !empty($adresse) ) {
-           
-            
-$utilisateur['prenom'] = (!empty($_POST['prenom'])) ? trim(strip_tags($_POST['prenom'])) : '';
-$utilisateur['nom'] = (!empty($_POST['nom'])) ? trim(strip_tags($_POST['nom'])) : '';
-$utilisateur['email'] = (!empty($_POST['email'])) ? strip_tags($_POST['email']) : '';
-$utilisateur['mot_de_passe'] = (!empty($_POST['mdp'])) ? $_POST['mdp'] : '';
-$utilisateur['genre'] = (!empty($_POST['genre'])) ? strip_tags($_POST['genre']) : '';
-$utilisateur['telephone'] = (!empty($_POST['telephone'])) ? strip_tags($_POST['telephone']) : '';
-$utilisateur['ville'] = (!empty($_POST['ville'])) ? strip_tags($_POST['ville']) : '';
-$utilisateur['code_postal'] = (!empty($_POST['code_postal'])) ? strip_tags($_POST['code_postal']) : '';
-$utilisateur['adresse'] = (!empty($_POST['adresse'])) ? strip_tags($_POST['adresse']) : '';
-
-
-
-
-
-
-if( preg_match('/@/', $utilisateur['email']) && ( preg_match('/[A-Z]/', $utilisateur['mot_de_passe']) && preg_match('/[0-9]/', $utilisateur['mot_de_passe'])) ) {
-
-$utilisateur['mot_de_passe'] = password_hash($utilisateur['mot_de_passe'], PASSWORD_DEFAULT);
-
-
-			$this->tableMembre->insert($utilisateur);
-		}
+	public function afficherFormulaire() {
 		$this->show('user/inscription');
 	}
-    }
 
+	public function enregistrerUtilisateur() {
+		if (isset($_POST['envoi'])) {
+			// je cree un tableau ave toutes les valeurs
+			$utilisateur['email'] = (!empty($_POST['email'])) ? strip_tags(trim($_POST['email'])) : '';
+			$utilisateur['mot_de_passe'] = (!empty($_POST['mdp'])) ? trim($_POST['mdp']) : '';
+
+			if (preg_match('/@/', $utilisateur['email']) && (preg_match('/[A-Z]/', $utilisateur['mot_de_passe']) && preg_match('/[0-9]/', $utilisateur['mot_de_passe']))) {
+
+				$utilisateur['mot_de_passe'] = password_hash($utilisateur['mot_de_passe'], PASSWORD_DEFAULT);
+
+				$insertion = $this->tableMembre->insert($utilisateur);
+				if(!$insertion) {
+					$this->redirectToRoute('inscription'); // TODO : Envoyer les données MSG et TYPE
+				} else {
+					$this->redirectToRoute('home'); // TODO : Envoyer les données MSG et TYPE
+				}
+			} else {
+				$this->redirectToRoute('inscription'); // TODO : Envoyer les données MSG et TYPE
+			}
+
+
+		}
+	}
+	
+	public function connexion() {
+		if(!empty($_POST['connexion'])) {
+			$email = !empty($_POST['email']) ? strip_tags(trim($_POST['email'])) : '';
+			$mdp = !empty($_POST['mot_de_passe']) ? strip_tags(trim($_POST['mot_de_passe'])) : '';
+
+			$utilisateur = $this->validator->isValidLoginInfo($email,$mdp);
+			if($utilisateur == 'absent') {
+				$this->show('user/connexion', ['msg' => 'email non existant']);
+			} elseif($utilisateur > 0) {
+				// je recupere ses infos et redirige vers la page profil
+				$coco['membre'] = $this->tableMembre->find($utilisateur);
+				$this->show('user/profil', $coco); // TODO : transformer l'url "connexion" en url "profil"
+			} else {
+				$this->show('user/connexion', ['msg' => 'erreurs identifiants']);
+			}
+
+		}
+		$this->show('user/connexion');
+	}
 }

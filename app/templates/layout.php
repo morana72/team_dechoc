@@ -20,15 +20,15 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.php">Paris online</a>
+				<a class="navbar-brand" href="<?= $this->url('home') ?>">Paris online</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a href="<?= $this->url('musees') ?>">Musées</a></li>
-					<li><a href="liste_monuments.php">Monument</a></li>
-					<li><a href="liste_balades.php">Balade</a></li>
-					<li><a href="liste_vuepanoramique.php">Vue panoramique</a></li>
+					<li><a href="<?= $this->url('monuments') ?>">Monuments</a></li>
+					<li><a href="<?= $this->url('ballades') ?>">Balades</a></li>
+					<li><a href="<?= $this->url('panoramas') ?>">Vues panoramique</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -43,6 +43,8 @@
 </header>
 
 <?= $this->section('principal') ?>
+
+
 
 <!--______________________________ Partie footer ____________________________________-->
 <footer>
