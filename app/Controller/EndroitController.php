@@ -35,5 +35,12 @@ class EndroitController extends Controller
 	public function afficherPanoramas()
 	{
 		$this->show('endroits/panoramas');
+		
+	}
+
+	public function afficherEndroits()
+	{
+		$this->show('endroits/ficheendroits');
+
 	}
 }

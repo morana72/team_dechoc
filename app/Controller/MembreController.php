@@ -11,7 +11,7 @@ use Manager\MembreManager;
 // j'importe l'authentificateur
 use W\Security\AuthentificationManager;
 
-class UserController extends Controller
+class MembreController extends Controller
 {
 	/*
 	 * propriété qui contiendra l'objet MembreManager, représentant de la table Membres
@@ -40,7 +40,7 @@ class UserController extends Controller
 	}
 
 	public function afficherFormulaire() {
-		$this->show('user/inscription');
+		$this->show('user/inscription'); // j'appelle le template user/inscription.php
 	}
 
 	public function enregistrerUtilisateur() {
@@ -55,7 +55,7 @@ class UserController extends Controller
 
 				$insertion = $this->tableMembre->insert($utilisateur);
 				if(!$insertion) {
-					$this->redirectToRoute('inscription'); // TODO : Envoyer les données MSG et TYPE
+					$this->redirectToRoute('inscription_msg', ['msg' => 'error']); // TODO : Envoyer les données MSG et TYPE
 				} else {
 					$this->redirectToRoute('home'); // TODO : Envoyer les données MSG et TYPE
 				}
@@ -64,6 +64,16 @@ class UserController extends Controller
 			}
 
 
+		}
+	}
+
+	public function inscriptionMsg($msg = '')
+	{
+		$infos['msg'] = '';
+		if($msg == 'error') {
+			$infos['msg'] = 'Erreur sur les identifiants';
+			$infos['type'] = 'danger';
+			$this->show('user/inscription', $infos);
 		}
 	}
 	
@@ -86,4 +96,6 @@ class UserController extends Controller
 		}
 		$this->show('user/connexion');
 	}
+
+	
 }
