@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 	<title>Paris online | <?= $this->e($title) ?></title>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -44,8 +45,6 @@
 
 <?= $this->section('principal') ?>
 
-
-
 <!--______________________________ Partie footer ____________________________________-->
 <footer>
 	<div>
@@ -66,8 +65,9 @@
 </footer>
 <!--_______________________________ Fin de la partie footer _____________________________-->
 
+<script type="text/javascript" src="<?= $this->assetUrl('js/map_musee.js') ?>"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcMX7HOEZhjNWNoYpaRPopYsEv42hl1kk&callback=initMap"></script>
 <script src="https://code.jquery.com/jquery-1.12.1.min.js" integrity="sha256-I1nTg78tSrZev3kjvfdM5A5Ak/blglGzlaZANLPDl3I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="<?= $this->assetUrl('js/initMap.js') ?>"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </body>

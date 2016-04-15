@@ -6,7 +6,7 @@
         <div class="alert-<?= $type ?>"> <?= $msg ?></div>
     <?php endif; ?>
     <h2>Pour une utilisation optimale du site il est préférable de s'inscrire</h2>
-    <form method="POST" action="<?= $this->url('inscription') ?>">
+    <form method="POST" action="<?= $this->url('inscription_post') ?>">
         <label>Email</label>
         <input type="email" name="email">
         <label>Mot de Passe</label>

@@ -238,7 +238,10 @@ iframe {
     width:200px;
     margin: auto;
 }
-
+#inscription footer,#connexion footer{
+    position:absolute;
+}
+/*-----------------footer generique--------------*/
 footer ul:first-of-type {
     padding-top: 1rem;
 }
@@ -439,8 +442,7 @@ footer ul {
 }
 
 #index #map {
-    height: 100%;
-    padding: 12rem 11rem;
+    min-height: 18em;
 }
 
 #index main h2 {
