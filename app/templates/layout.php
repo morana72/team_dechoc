@@ -28,14 +28,14 @@
 				<ul class="nav navbar-nav">
 					<li><a href="<?= $this->url('musees') ?>">Musées</a></li>
 					<li><a href="<?= $this->url('monuments') ?>">Monuments</a></li>
-					<li><a href="<?= $this->url('ballades') ?>">Balades</a></li>
-					<li><a href="<?= $this->url('panoramas') ?>">Vues panoramique</a></li>
+					<li><a href="<?= $this->url('passages') ?>">Passages</a></li>
+					<li><a href="<?= $this->url('panoramas') ?>">Panoramas</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
-					<li><a href="connexion.php"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
-					<li><a href="contact.php"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+					<li><a href="<?= $this->url('inscription') ?>"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
+					<li><a href="<?= $this->url('connexion') ?>"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+					<li><a href="<?= $this->url('contact') ?>"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -79,7 +79,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <!-- script pour activer google map -->
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="<?= $this->assetUrl('js/script_musees.js') ?>"></script>
+<?= $this->section('scripts_persos') ?>
 
 </body>
 </html>

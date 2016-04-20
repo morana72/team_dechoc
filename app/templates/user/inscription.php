@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Inscription', 'id' => 'inscription']) ?>
 <?php $this->start('principal') ?>
 <main >
-    <h1>Hey!Bienvenue !</h1>
+    <h1>Hey! Bienvenue !</h1>
     <?php if(!empty($msg) && !empty($type)) : ?>
         <div class="alert-<?= $type ?>"> <?= $msg ?></div>
     <?php endif; ?>

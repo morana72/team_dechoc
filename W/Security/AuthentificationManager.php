@@ -23,14 +23,15 @@ class AuthentificationManager
 		$usernameOrEmail = strip_tags(trim($usernameOrEmail));
 		$foundUser = $userManager->getUserByUsernameOrEmail($usernameOrEmail);
 		if (!$foundUser){
-			return 'absent';
+			return 'absent'; // je retourne absent parce qu'elle n'existe pas
 		}
 
 		if (password_verify($plainPassword, $foundUser[$app->getConfig('security_password_property')])){
+			// je retourne l'id de la personne
 			return (int) $foundUser[$app->getConfig('security_id_property')];
 		}
 
-		return 'interdit';
+		return 'interdit'; // je retourne interdit si le mot de passe ne correspond pas 
 	}
 
 	/**
@@ -43,7 +44,7 @@ class AuthentificationManager
 
 		//retire le mot de passe de la session
 		unset( $user[$app->getConfig('security_password_property')] );
-		$_SESSION["user"] = $user;
+		$_SESSION["membre"] = $user;
 	}
 
 	/**
@@ -51,7 +52,7 @@ class AuthentificationManager
 	 */
 	public function logUserOut()
 	{
-		unset($_SESSION["user"]);
+		unset($_SESSION["membre"]);
 	}
 
 	/**

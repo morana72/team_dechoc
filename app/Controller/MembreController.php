@@ -3,28 +3,29 @@
 namespace Controller;
 
 // je fais appel à la classe Controller generale, pour qu'elle devienne la mère de mon DefaultController
-use W\Controller\Controller;
-
-// j'importe la classe MembreManager pour acceder à la table Membres dans la base de données
+use \W\Controller\Controller;
+use Manager\ContactManager;
 use Manager\MembreManager;
-
-// j'importe l'authentificateur
 use W\Security\AuthentificationManager;
+
 
 class MembreController extends Controller
 {
 	/*
 	 * propriété qui contiendra l'objet MembreManager, représentant de la table Membres
+	 *
 	 * */
 	protected $tableMembre;
-
 	protected $validator;
+	protected $contact;
+
 
 	public function __construct()
 	{
 		// au moment où j'appel le constructeur, j'instancie le representant de la table
 		$this->tableMembre = new MembreManager();
 		$this->validator = new AuthentificationManager();
+		$this->contact = new ContactManager();
 	}
 
 	/**
@@ -32,11 +33,8 @@ class MembreController extends Controller
 	 */
 	public function showProfil()
 	{
-		$user = [
-			'prenom' => 'Bruce',
-			'nom' => 'WAYNE',
-		];
-		$this->show('user/profil', $user);
+		// afficher le profil avec les informations $_SESSION
+		$this->show('user/profil');
 	}
 
 	public function afficherFormulaire() {
@@ -70,31 +68,33 @@ class MembreController extends Controller
 	public function inscriptionMsg($msg = '')
 	{
 		$infos['msg'] = '';
-		if($msg == 'error') {
-			$infos['msg'] = 'Erreur sur les identifiants';
+		if($msg == 'no_email') {
+			$infos['msg'] = 'Email non existant';
 			$infos['type'] = 'danger';
-			$this->show('user/inscription', $infos);
 		}
+		$this->show('user/inscription', $infos);
 	}
 	
 	public function connexion() {
-		if(!empty($_POST['connexion'])) {
+		if(isset($_POST['connexion'])) {
 			$email = !empty($_POST['email']) ? strip_tags(trim($_POST['email'])) : '';
 			$mdp = !empty($_POST['mot_de_passe']) ? strip_tags(trim($_POST['mot_de_passe'])) : '';
 
 			$utilisateur = $this->validator->isValidLoginInfo($email,$mdp);
 			if($utilisateur == 'absent') {
-				$this->show('user/connexion', ['msg' => 'email non existant']);
+				$this->redirectToRoute('inscription_msg', ['msg' => 'no_email']);
 			} elseif($utilisateur > 0) {
 				// je recupere ses infos et redirige vers la page profil
-				$coco['membre'] = $this->tableMembre->find($utilisateur);
-				$this->show('user/profil', $coco); // TODO : transformer l'url "connexion" en url "profil"
-			} else {
-				$this->show('user/connexion', ['msg' => 'erreurs identifiants']);
+				$membre = $this->tableMembre->find($utilisateur);
+				$this->validator->logUserIn($membre); // je rempli la session membre avec les infos de l'utilisateur
+				$this->redirect('profil'); //
+			} else { // je retourne interdit si le mot de passe ne correspond pas
+				$this->show('user/connexion', ['msg' => 'erreurs identifiants']); // TODO : gestion de l'erreur identifiant
 			}
 
+		} else {
+			$this->show('user/connexion');
 		}
-		$this->show('user/connexion');
 	}
 
 	
