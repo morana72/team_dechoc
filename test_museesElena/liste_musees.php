@@ -17,7 +17,7 @@ $parisonline = new PDO($DSN,$user,$mdp,$options);
 
 // var_dump($parisonline);
 
-$recup = $parisonline->query("SELECT titre, photo, descriptif_mini, adresse, CP 
+$recup = $parisonline->query("SELECT id, titre, photo, descriptif, descriptif_mini, adresse, CP 
 							  FROM musees");
 
 $endroits = $recup->fetchAll(PDO::FETCH_ASSOC);
@@ -70,7 +70,10 @@ $endroits = $recup->fetchAll(PDO::FETCH_ASSOC);
 			<section class="fiche">
 				<h2>Les Musées</h2>
 				<div id="map_list"></div>
-
+				<script>
+					var modaux = {};
+				</script>
+				<?php $i=0; ?>
 				<?php foreach($endroits as $key => $value) : ?>
 			<!-- id=<?=$value['titre']?> -->
 					<article class="liste">
@@ -84,9 +87,46 @@ $endroits = $recup->fetchAll(PDO::FETCH_ASSOC);
 						<h4><?php echo $value['descriptif_mini'] ?></h4>
 						<p><?php echo $value['adresse'] ?></p><br>
 						<p><?php echo $value['CP'] ?></p><br>
-						<!-- <a href="#"><i class="fa fa-star"></i>Ajouter à vos favoris</a> -->
+
+						<div class="container">
+  
+						  <!-- Trigger the modal with a button -->
+						  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_<?= $value['id'] ?>">plus d'info</button>
+						  <script>
+						  		modaux[<?= $i?>] = <?= $value['id'] ?>;
+						  </script>
+
+						  <!-- Modal -->
+						  <div class="modal fade" id="myModal_<?= $value['id'] ?>" role="dialog">
+						    <div class="modal-dialog">
+						    
+						      <!-- Modal content-->
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title"><?php echo $value['titre'] ?></h4>
+						        </div>
+						        <div class="modal-body" id="modalBody_<?= $value['id'] ?>">
+						          	<div class="listeimg">
+										<!-- image -->
+										<img src="img/img_musees/<?php echo $value['photo'] ?>" alt="<?php echo $value['photo'] ?>"/>
+									 </div>
+						          <p><?php echo $value['descriptif_mini'] ?></p>
+
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+						        </div>
+						      </div>
+						      
+						    </div>
+						  </div>
+						  
+						</div>
+						<a href="#"><i class="fa fa-star"></i>Ajouter à vos favoris</a>
 									 
 					</article>
+					<?php $i++; ?>
 				<?php endforeach; ?>
 								
 			</section>
@@ -124,7 +164,7 @@ $endroits = $recup->fetchAll(PDO::FETCH_ASSOC);
 	 	 <!-- script pour activer google map -->
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-	 	 <script type="text/javascript" src="js/script.js"></script>
+	 	 <script type="text/javascript" src="js/script_musees.js"></script>
 	</body>
 </html>
 
