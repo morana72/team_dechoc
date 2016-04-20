@@ -40,6 +40,12 @@
 			</div>
 		</div>
 	</nav>
+	<?php
+	if($id=='index'){
+		echo'<h1 class="lo_h1">Paris Online</h1>
+			<h2 class="lo_h2">Tout paris à portée de main</h2>';
+	}
+	?>
 	<!--________________________________ Fin Barre de navigation avec menu _________________________________-->
 </header>
 

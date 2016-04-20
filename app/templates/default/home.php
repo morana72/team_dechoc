@@ -2,8 +2,7 @@
 
 <?php $this->start('principal') ?>
 <main>
-	<h1 class="lo_h1">Paris Online</h1>
-	<h2 class="lo_h2">Tout paris à portée de main</h2>
+	
 	<section class="lo_formulaire">
 
 		<section>
