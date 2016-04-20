@@ -416,12 +416,12 @@ footer ul {
 /*---------Bouton OK---------*/
 
 #index div input:last-of-type {
-   width: 38%;
-    height: 7rem;
+    width: 38%;
+    height: 6rem;
     text-align: center;
     margin: 9% 30%;
     font-size: 2.1rem;
-    padding-bottom: 4rem;
+    padding-bottom: 1rem;
 }
 
 #index input[type="check"] {
@@ -442,7 +442,7 @@ footer ul {
 }
 
 #index #map {
-    min-height: 18em;
+    min-height: 18.5em;
 }
 
 #index main h2 {
@@ -503,9 +503,16 @@ footer ul {
 
 @media screen and (min-width: 75rem) {
     #index main section article {
-        margin: 1rem;
+        margin: auto;
         display: inline-block;
         width: 47%;
+        min-height: 18em;
+        vertical-align: top;
+    }
+
+    #index main section article:first-of-type{
+        margin-left: 2.1%;
+        margin-right: 2%;
     }
 
     #index section iframe {
@@ -518,13 +525,14 @@ footer ul {
 
 @media screen and (min-width: 90rem) {
     #index header {
-        min-height: 125vh;
+        min-height: 100vh;
     }
+
     #index .lo_h1 {
         color: white;
         width: 100%;
         text-align: center;
-        margin-top: 21rem;
+       /*margin-top: 21rem;*/
         font-size: 13rem;
     }
    #index  header h2 {
@@ -535,4 +543,5 @@ footer ul {
         width: 15%;
         margin: 9% 43%;
     }
+
 }
