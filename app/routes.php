@@ -14,6 +14,6 @@
 		['GET', '/ballades', 'Endroit#afficherBallades', 'ballades'],
 		['GET', '/monuments', 'Endroit#afficherMonuments', 'monuments'],
 		['GET', '/paronamas', 'Endroit#afficherPanoramas', 'panoramas'],
-		['GET', '/ficheendroits', 'Endroit#afficherEndroits', 'ficheendroits'],
+		['GET', '/ficheendroits', 'Endroit#afficherEndroits', 'ficheendroits']
 
 	);

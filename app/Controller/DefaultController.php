@@ -13,6 +13,7 @@ class DefaultController extends Controller
 	 */
 	public function home()
 	{
+		// se trouve dans template/default/home.php
 		$this->show('default/home');
 	}
 
