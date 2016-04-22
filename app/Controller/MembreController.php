@@ -45,20 +45,19 @@ class MembreController extends Controller
 		if (isset($_POST['envoi'])) {
 			// je cree un tableau ave toutes les valeurs
 			$utilisateur['email'] = (!empty($_POST['email'])) ? strip_tags(trim($_POST['email'])) : '';
-			$utilisateur['mot_de_passe'] = (!empty($_POST['mdp'])) ? trim($_POST['mdp']) : '';
+			$utilisateur['mdp'] = (!empty($_POST['mdp'])) ? trim($_POST['mdp']) : '';
 
-			if (preg_match('/@/', $utilisateur['email']) && (preg_match('/[A-Z]/', $utilisateur['mot_de_passe']) && preg_match('/[0-9]/', $utilisateur['mot_de_passe']))) {
-
-				$utilisateur['mot_de_passe'] = password_hash($utilisateur['mot_de_passe'], PASSWORD_DEFAULT);
-
-				$insertion = $this->tableMembre->insert($utilisateur);
+			if (preg_match('/@/', $utilisateur['email']) && (preg_match('/[A-Z]/', $utilisateur['mdp']) && preg_match('/[0-9]/', $utilisateur['mdp']))) {
+				$utilisateur['mdp'] = password_hash($utilisateur['mdp'], PASSWORD_DEFAULT);
+				$insertion = $this->tableMembre->insert($utilisateur,true); //insert in database user informations
 				if(!$insertion) {
-					$this->redirectToRoute('inscription_msg', ['msg' => 'error']); // TODO : Envoyer les données MSG et TYPE
+					$_GET['erreur']=$insertion;
+					$this->redirectToRoute('inscription_msg', ['msg' => 'error']);// TODO : Envoyer les données MSG et TYPE
 				} else {
-					$this->redirectToRoute('home'); // TODO : Envoyer les données MSG et TYPE
+					$this->redirectToRoute('home'); //
 				}
 			} else {
-				$this->redirectToRoute('inscription'); // TODO : Envoyer les données MSG et TYPE
+				$this->redirectToRoute('inscription_msg', ['msg' => 'error mailmdp']);//
 			}
 
 
@@ -78,7 +77,7 @@ class MembreController extends Controller
 	public function connexion() {
 		if(isset($_POST['connexion'])) {
 			$email = !empty($_POST['email']) ? strip_tags(trim($_POST['email'])) : '';
-			$mdp = !empty($_POST['mot_de_passe']) ? strip_tags(trim($_POST['mot_de_passe'])) : '';
+			$mdp = !empty($_POST['mdp']) ? strip_tags(trim($_POST['mdp'])) : '';
 
 			$utilisateur = $this->validator->isValidLoginInfo($email,$mdp);
 			if($utilisateur == 'absent') {

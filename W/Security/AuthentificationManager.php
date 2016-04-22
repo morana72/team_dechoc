@@ -21,7 +21,7 @@ class AuthentificationManager
 
 		$userManager = new UserManager();
 		$usernameOrEmail = strip_tags(trim($usernameOrEmail));
-		$foundUser = $userManager->getUserByUsernameOrEmail($usernameOrEmail);
+		$foundUser = $userManager->emailExists($usernameOrEmail);
 		if (!$foundUser){
 			return 'absent'; // je retourne absent parce qu'elle n'existe pas
 		}

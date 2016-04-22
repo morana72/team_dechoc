@@ -78,6 +78,17 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!-- script pour activer google map -->
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script>
+	/*$('form').submit(function(event){
+		event.preventDefault()
+		$.ajax({
+			method: "POST",
+			success: function(data){
+				console.log(data);
+			}
+		})
+	})*/
+</script>
 <?= $this->section('scripts_persos') ?>
 
 </body>

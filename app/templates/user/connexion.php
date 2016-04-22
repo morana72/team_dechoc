@@ -6,7 +6,7 @@
 			<label>Pseudo</label>
 			<input type="text" name="email">
 			<label>Mot de Passe</label>
-			<input type="text" name="mot_de_passe">
+			<input type="text" name="mdp">
 			<input type="submit" name="connexion">
 		</form>
 	</main>

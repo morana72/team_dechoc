@@ -88,6 +88,14 @@ input[type=submit] {
     padding: 0.5rem;
 }
 
+input[type=checkbox], input[type=radio] {
+           /* All browsers except webkit*/
+    transform: scale(1.5);
+
+    /* Webkit browsers*/
+    -webkit-transform: scale(1.5);
+}
+
 .formulaire form {
     padding-left: 1.3rem;
 }

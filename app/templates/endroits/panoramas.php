@@ -59,11 +59,6 @@
 
                 for (var i = 0; i < data.length; i++) {
 
-                    //console.log(data);
-
-                    // $("#modalBody_" + modaux[i]).append('<article><h3>'+data[i].fields.nom_du_musee+'</h3><p>'+data[i].fields.adr+'</p><br><p>'+data[i].fields.cp+'</p><br><p>'+data[i].fields.sitweb+'</p><br><p>'+data[i].fields.periode_ouverture+'</p></article>');
-
-
 
                     // VARIABLE donnees pour json data /!\ necessaire
                     var donnees = data[i];
