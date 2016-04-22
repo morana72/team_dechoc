@@ -75,7 +75,7 @@ class MembreController extends Controller
 	}
 	
 	public function connexion() {
-		if(isset($_POST['connexion'])) {
+		if(isset($_POST)) {
 			$email = !empty($_POST['email']) ? strip_tags(trim($_POST['email'])) : '';
 			$mdp = !empty($_POST['mdp']) ? strip_tags(trim($_POST['mdp'])) : '';
 
@@ -88,7 +88,7 @@ class MembreController extends Controller
 				$this->validator->logUserIn($membre); // je rempli la session membre avec les infos de l'utilisateur
 				$this->redirect('profil'); //
 			} else { // je retourne interdit si le mot de passe ne correspond pas
-				$this->show('user/connexion', ['msg' => 'erreurs identifiants']); // TODO : gestion de l'erreur identifiant
+				$this->show('user/connexion', ['msg' => 'erreurs identifiants', 'id' => $utilisateur ]); // TODO : gestion de l'erreur identifiant
 			}
 
 		} else {
