@@ -114,7 +114,7 @@ input[type=checkbox], input[type=radio] {
 }
 .pub img {
 
-    width: 38rem;
+
     margin: 2rem;
     border-radius: 0.5em;
     max-height: 80%;
@@ -293,7 +293,10 @@ footer ul {
     margin-bottom: 0;
 }
 
-
+#mentions {
+    max-width: 90%;
+    margin: auto;
+}
 
 /*-------------------------------------
                 MEDIA QUERY
@@ -550,7 +553,7 @@ footer ul {
         margin: auto;
         display: inline-block;
         width: 47%;
-        min-height: 18em;
+        min-height: 19em;
         vertical-align: top;
     }
 

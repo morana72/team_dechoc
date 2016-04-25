@@ -15,8 +15,8 @@
 				 <form method="post">
 					<input type="checkbox" name="monuments" value="monuments">  Les monuments <br>
 					<input type="checkbox" name="musees" value="musees">  Les musées <br>
-					<input type="checkbox" name="galerie" value="galerie">  Galerie <br>
-					<input type="checkbox" name="panoramas" value="panoramas">  Admirer le panorama de paris <br>
+					<input type="checkbox" name="galerie" value="galerie">  Passages couverts <br>
+					<input type="checkbox" name="panoramas" value="panoramas">  Admirer le panorama de Paris <br>
 					<input type="radio" name="rayon" value="200" checked>  à 200m <br>
 					<input type="radio" name="rayon" value="500">  à 500m <br>
 					<div><input class="okBtn" type="submit"  value="OK"></div>
