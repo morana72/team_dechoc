@@ -171,6 +171,19 @@ footer li {
     width: 85%;
 }
 
+.fiche img[alt="webmaster"] {
+    border-radius: 146px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    width: 26rem;
+}
+.fiche img[alt="equipe"] {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    width: 26rem;
+}
+
+
 iframe {
     width: 85%;
     margin-top: 1rem;
@@ -264,6 +277,7 @@ iframe {
 #connexion form{
     width:200px;
     margin: auto;
+
 }
 
 #connexion h1 {
