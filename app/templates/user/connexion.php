@@ -10,4 +10,8 @@
 			<input type="submit" name="connexion">
 		</form>
 	</main>
+<?php var_dump($_SESSION);?>
+<?php if (isset($msg)){ echo$msg;} ?>
+<?php debug($id) ?>
 <?php $this->stop('principal') ?>
+

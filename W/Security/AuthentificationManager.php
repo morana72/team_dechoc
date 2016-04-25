@@ -31,7 +31,7 @@ class AuthentificationManager
 			return (int) $foundUser[$app->getConfig('security_id_property')];
 		}
 
-		return 'interdit'; // je retourne interdit si le mot de passe ne correspond pas 
+		return 'interdit'; // je retourne interdit si le mot de passe ne correspond pas
 	}
 
 	/**
