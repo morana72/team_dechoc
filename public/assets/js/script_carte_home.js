@@ -37,9 +37,9 @@
           center: userLatLng,
           radius: position.coords.accuracy,
           map: mapObject,
-          fillColor: '#0000FF',
+          fillColor: '#AEEEEE',
           fillOpacity: 0.2,
-          strokeColor: '#0000FF',
+          strokeColor: '#AEEEEE',
           strokeOpacity: 0.2
         });
         mapObject.fitBounds(circle.getBounds());

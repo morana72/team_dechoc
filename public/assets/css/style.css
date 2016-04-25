@@ -250,6 +250,11 @@ iframe {
 }
 #connexion input {
     display: inline-block;
+    width: 108%;
+    height: 3.2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: black;
 }
 #connexion label{
     display: block;
@@ -282,7 +287,7 @@ iframe {
 }
 
 #inscription h2 {
-    margin-bottom: 7rem;
+    margin-bottom: 5rem;
     margin-top: 5rem;
     text-align: center;
 }
@@ -291,7 +296,7 @@ iframe {
     width: 30%;
     margin: 1em 35%;
 }
-#inscription input, #connexion input {
+#inscription input {
     display: inline-block;
     width: 108%;
     height: 3.2rem;
@@ -304,7 +309,6 @@ iframe {
     display: block;
     color: slategray;
 }
-
 
 #inscription form{
     margin-top: 10rem;
@@ -321,7 +325,6 @@ iframe {
     margin-top: 2rem;
     background-color: whitesmoke;
 }
-
 /*-----------------footer generique--------------*/
 footer ul:first-of-type {
     padding-top: 1rem;
@@ -439,6 +442,32 @@ footer ul {
 
 /*-----------------------PageContact---------------------*/
 
+#contact {
+    color: white;
+    background-image: url("../img/pont_caroussel.jpg");
+    background-repeat: no-repeat;
+    background-size: 79rem;
+    background-position: center;
+}
+
+
+#contact form {
+    margin-top: 10rem;
+    width: 200px;
+    margin: auto;
+    background-image: none;
+    color: black;
+}
+
+#contact input {
+    display: inline-block;
+    width: 108%;
+    height: 3.2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: black;
+}
+
 #contact label {
 	display: inline-block;
     max-width: 100%;
@@ -449,27 +478,22 @@ footer ul {
 #contact body{
     position: absolute;
 }
-#contact label:last-of-type {
-	display: inline-block;
-    max-width: 100%;
-    margin-bottom: 9px;
-    font-weight: 700;
-    padding: 5em 3em 0em 1em;
-    margin: 0em -1em 3em 1em;
-  
-}
+
+
 
 #contact textarea {
-	    margin: -6em 2em 6em 7em;
-	    
+    width:108%;
+    margin-bottom: 7rem;
 }
 
-#contact input[type=submit] {   color: black;
-    font-weight: 600;
-    padding: 1em 1em 1em 1em;
-    margin: 1em 6em 1em 1em;
+#contact input[type=submit] {
 
  }
+
+#contact footer{
+    position: absolute;
+    bottom: 0;
+}
 
 /*----------------------------------Lovincy-----------------------------------*/
 
@@ -624,6 +648,15 @@ footer ul {
         color:white;
         background-repeat: no-repeat;
         background-size: 100%;
+    }
+
+    #contact {
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    
+    #contact label:last-of-type {
+        color: white;
     }
 }
 
