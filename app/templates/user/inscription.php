@@ -10,6 +10,8 @@
         <input  type="text" name="familyName">
         <label>Prénom</label>
         <input type="text" name="firstName">
+        <label>Pseudo</label>
+        <input type="text" name="pseudo">
         <label>Email</label>
         <input type="email" name="email" placeholder="ex: yourAdress@mail.com">
         <label>Mot de Passe</label>

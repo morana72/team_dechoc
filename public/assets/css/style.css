@@ -239,17 +239,32 @@ iframe {
 
 /*-----------------------Connexion---------------------*/
 #connexion{
-    color:black;
+    color: black;
+    background-image: url("../img/quaimiterrand.jpg");
+    background-repeat: no-repeat;
+    background-size: 130rem;
+    background-position: center;
 }
 #connexion input {
     display: inline-block;
 }
 #connexion label{
     display: block;
+    color: white;
+    font-size: 2rem;
 }
 #connexion form{
     width:200px;
     margin: auto;
+}
+
+#connexion h1 {
+    margin-bottom: 13rem;
+    color: white;
+}
+
+#connexion input[type=submit] {
+    margin-top: 3rem;
 }
 
 /*-----------------------Inscription---------------------*/
@@ -264,7 +279,7 @@ iframe {
 }
 
 #inscription h2 {
-    margin-bottom: 10rem;
+    margin-bottom: 7rem;
     margin-top: 5rem;
     text-align: center;
 }
@@ -273,7 +288,7 @@ iframe {
     width: 30%;
     margin: 1em 35%;
 }
-#inscription input {
+#inscription input, #connexion input {
     display: inline-block;
     width: 108%;
     height: 3.2rem;
@@ -284,7 +299,9 @@ iframe {
 
 #inscription label{
     display: block;
+    color: slategray;
 }
+
 
 #inscription form{
     margin-top: 10rem;
@@ -593,6 +610,12 @@ footer ul {
     #inscription {
         color:white;
         background-image: url("../img/pont-alexandre-iii.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    #connexion {
+        color:white;
         background-repeat: no-repeat;
         background-size: 100%;
     }
