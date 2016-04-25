@@ -171,6 +171,19 @@ footer li {
     width: 85%;
 }
 
+.fiche img[alt="webmaster"] {
+    border-radius: 146px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    width: 26rem;
+}
+.fiche img[alt="equipe"] {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    width: 26rem;
+}
+
+
 iframe {
     width: 85%;
     margin-top: 1rem;
@@ -253,6 +266,7 @@ iframe {
 #connexion form{
     width:200px;
     margin: auto;
+
 }
 
 /*-----------------------Inscription---------------------*/
@@ -439,20 +453,29 @@ footer ul {
     font-weight: 700;
     padding: 5em 3em 0em 1em;
     margin: 0em -1em 3em 1em;
-  
+    margin-left: 17rem;
 }
 
 #contact textarea {
-	    margin: -6em 2em 6em 7em;
+    margin-left: 2rem;
+    width: 30rem;
+    height: 20rem;
+    margin-top: 2rem;
 	    
 }
 
 #contact input[type=submit] {   color: black;
+    color: black;
     font-weight: 600;
-    padding: 1em 1em 1em 1em;
+    font-size: 2rem;
+    padding: 0.5em 3em 0.5em 3em;
     margin: 1em 6em 1em 1em;
+    /* margin: auto; */
+    margin-left: 30rem;
 
  }
+
+
 
 /*----------------------------------Lovincy-----------------------------------*/
 
