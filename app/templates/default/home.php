@@ -12,13 +12,13 @@
 	
 				<?php// endif; ?>
 				 <!--Formulaire qui sera placé sur la carte avec un fond blanc transparent -->
-				 <form method="post">
-					<input type="checkbox" name="monuments" value="monuments">  Les monuments <br>
-					<input type="checkbox" name="musees" value="musees">  Les musées <br>
-					<input type="checkbox" name="galerie" value="galerie">  Passages couverts <br>
-					<input type="checkbox" name="panoramas" value="panoramas">  Admirer le panorama de Paris <br>
-					<input type="radio" name="rayon" value="200" checked>  à 200m <br>
-					<input type="radio" name="rayon" value="500">  à 500m <br>
+				 <form id="formulaire">
+					<input type="checkbox" id="monuments" name="monuments" value="monuments">  Les monuments <br>
+					<input type="checkbox" id="musees" name="musees" value="musees">  Les musées <br>
+					<input type="checkbox" id="galerie" name="galerie" value="galerie">  Passages couverts <br>
+					<input type="checkbox" id="panoramas" name="panoramas" value="panoramas">  Admirer le panorama de Paris <br>
+                     <!--<input type="radio" class="rayon" name="rayon" value="500">  à 500m <br>-->
+                    <!--<input type="radio" class="rayon" name="rayon" value="200">  à 200m <br>-->
 					<div><input class="okBtn" type="submit"  value="OK"></div>
 				</form>
 			</article>
@@ -129,7 +129,6 @@
 
 						// VARIABLE donnees pour json data /!\ necessaire
 						var donnees = data[i];
-						console.log(data[i]);
 						var myLatlng = new google.maps.LatLng(donnees.latitude, donnees.longitude);
 
 						var marker = new google.maps.Marker({
@@ -158,14 +157,43 @@
 				}
 			});
 		}
-		afficherObjets('http:<?= $this->assetUrl('json/liste_monuments.json')?>','<?= $this->assetUrl('img/monument-historique-icon-white-22x22.png')?>','<?= $this->assetUrl('img/img_monuments')?>')
-		afficherObjets('http:<?= $this->assetUrl('json/liste-panoramas.json')?>','<?= $this->assetUrl('img/panoramicview.png')?>','<?= $this->assetUrl('img/img_panoramas')?>')
-		afficherObjets('http:<?= $this->assetUrl('json/liste-passages.json')?>','<?= $this->assetUrl('img/arch.png')?>','<?= $this->assetUrl('img/passages')?>')
-		afficherMusee()
 
 
+        $('#formulaire').submit(function (event){
+                event.preventDefault();
+                google.maps.event.trigger(map_list, 'resize');
+                var checkbox_value = [];
+                $(":checkbox").each(function () {
 
-	}
+                    if ($(this).is(":checked")) {
+                        checkbox_value.push($(this).val());
+                    }
+                });
+                console.info(checkbox_value);
+
+                if(checkbox_value !== 'undefined' +
+                    '') {
+                    for (var i = 0; i < checkbox_value.length; i++) {
+
+                        if (checkbox_value[i] == 'monuments')
+                            afficherObjets('http:<?= $this->assetUrl('json/liste_monuments.json')?>', '<?= $this->assetUrl('img/monument-historique-icon-white-22x22.png')?>', '<?= $this->assetUrl('img/img_monuments')?>');
+                        if (checkbox_value[i] == 'musees')
+                            afficherMusee();
+                        if (checkbox_value[i] == 'galerie')
+                            afficherObjets('http:<?= $this->assetUrl('json/liste-passages.json')?>', '<?= $this->assetUrl('img/arch.png')?>', '<?= $this->assetUrl('img/passages')?>');
+                        if (checkbox_value[i] == 'panoramas')
+                            afficherObjets('http:<?= $this->assetUrl('json/liste-panoramas.json')?>', '<?= $this->assetUrl('img/panoramicview.png')?>', '<?= $this->assetUrl('img/img_panoramas')?>');
+
+                    }
+                } else {
+                    afficherObjets('http:<?= $this->assetUrl('json/liste_monuments.json')?>','<?= $this->assetUrl('img/monument-historique-icon-white-22x22.png')?>','<?= $this->assetUrl('img/img_monuments')?>');
+                    afficherObjets('http:<?= $this->assetUrl('json/liste-panoramas.json')?>','<?= $this->assetUrl('img/panoramicview.png')?>','<?= $this->assetUrl('img/img_panoramas')?>');
+                    afficherObjets('http:<?= $this->assetUrl('json/liste-passages.json')?>','<?= $this->assetUrl('img/arch.png')?>','<?= $this->assetUrl('img/passages')?>');
+                    afficherMusee();
+                }
+            });
+
+        }
 
 	function geolocationError(positionError) {
 		document.getElementById("error").innerHTML += "Error: " + positionError.message + "<br />";
