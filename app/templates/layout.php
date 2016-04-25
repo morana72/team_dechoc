@@ -43,7 +43,7 @@
 	<?php
 	if($id=='index'){
 		echo'<h1 class="lo_h1">Paris Online</h1>
-			<h2 class="lo_h2">Tout paris à portée de main</h2>';
+			<h2 class="lo_h2">Tout Paris à portée de main</h2>';
 	}
 	?>
 	<!--________________________________ Fin Barre de navigation avec menu _________________________________-->
@@ -55,9 +55,9 @@
 <footer>
 	<div>
 		<ul>
-			<li><a href="#">Qui sommes nous</a></li>
-			<li><a href="#">Mentions légales</a></li>
-			<li><a href="#">Contact</a></li>
+			<li><a href="<?= $this->url('about') ?>">Qui sommes nous</a></li>
+			<li><a href="<?= $this->url('mentions') ?>">Mentions légales</a></li>
+			<li><a href="<?= $this->url('contact') ?>">Contact</a></li>
 		</ul>
 	</div>
 
