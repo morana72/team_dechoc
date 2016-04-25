@@ -1,7 +1,7 @@
 // var map;
 
 // Déclaclaration du rayon
-var radiusCircle = 200; //valeur en mètre
+var radiusCircle = 200; //valeur en mètres
 
 
 function initMap() {
@@ -17,14 +17,14 @@ function initMap() {
   });
 
   var infoWindow = new google.maps.InfoWindow({map: map});
-  // Géolocalisation
+
       var userPosition = new google.maps.Marker({
         map:map,
         position: new google.maps.LatLng(place.lat, place.lng),
         title: 'ici'
       });
 
-      // Changement d'icone du marqueur
+
       var image = '../../img/usericon.png';
       var beachMarker = new google.maps.Marker({
       position: {lat: -33.890, lng: 151.274},
