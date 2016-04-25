@@ -113,11 +113,14 @@ input[type=checkbox], input[type=radio] {
     margin-top: 0;
 }
 .pub img {
- 
-    width: 37rem;
-    margin-bottom: 2rem;
+
+    width: 38rem;
+    margin: 2rem;
     border-radius: 0.5em;
- }   
+    max-height: 80%;
+ }
+
+
 
 footer {
     bottom: 0px;
