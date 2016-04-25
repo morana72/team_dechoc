@@ -10,18 +10,18 @@ class AuthentificationManager
 
 	/**
 	 * Vérifie qu'une combinaison d'email/username et mot de passe (en clair) sont présents en bdd et valides
-	 * @param  string $usernameOrEmail Le pseudo ou l'email à test
+	 * @param  string $email Le pseudo ou l'email à test
 	 * @param  string $plainPassword Le mot de passe en clair à tester
 	 * @return  int  0 si invalide, l'identifiant de l'utilisateur si valide
 	 */
-	public function isValidLoginInfo($usernameOrEmail, $plainPassword)
+	public function isValidLoginInfo($email, $plainPassword)
 	{
 
 		$app = getApp();
 
 		$userManager = new UserManager();
-		$usernameOrEmail = strip_tags(trim($usernameOrEmail));
-		$foundUser = $userManager->getUserByUsernameOrEmail($usernameOrEmail);
+		$email = strip_tags(trim($email));
+		$foundUser = $userManager->getUserByemail($email);
 		if (!$foundUser){
 			return 0;
 		}

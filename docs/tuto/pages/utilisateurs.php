@@ -29,7 +29,7 @@
 // Vérifie qu'une combinaison d'email/username et mot de passe (en clair) sont présents en bdd et valides
 // Vous devez avoir haché vos mdp avec la fonction password_hash() ou crypt() de votre côté !
 // Retourne l'id de l'utilisateur si valide
-public function isValidLoginInfo($usernameOrEmail, $plainPassword)
+public function isValidLoginInfo($email, $plainPassword)
 
 // Connecte un utilisateur
 // L'argument à passer est un tableau contenant les données utilisateur

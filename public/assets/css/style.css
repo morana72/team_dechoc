@@ -243,7 +243,6 @@ iframe {
 #profil img{
     display: block; 
     width: 12em;
-
     margin: auto;
     
 }
@@ -273,25 +272,53 @@ iframe {
 /*-----------------------Inscription---------------------*/
 
 #inscription{
-    color:black;
+    color: white;
+    background-image: url("../img/pont-alexandre-iii.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+
 }
+
+#inscription h2 {
+    margin-bottom: 10rem;
+    margin-top: 5rem;
+    text-align: center;
+}
+
 #inscription img{
     width: 30%;
     margin: 1em 35%;
 }
 #inscription input {
     display: inline-block;
+    width: 108%;
+    height: 3.2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: black;
 }
+
 #inscription label{
     display: block;
 }
+
 #inscription form{
+    margin-top: 10rem;
     width:200px;
     margin: auto;
 }
+
 #inscription footer,#connexion footer{
     position:absolute;
 }
+
+
+#inscription input[type=submit]{
+    margin-top: 2rem;
+    background-color: whitesmoke;
+}
+
 /*-----------------footer generique--------------*/
 footer ul:first-of-type {
     padding-top: 1rem;
@@ -414,8 +441,8 @@ footer ul {
     max-width: 100%;
     font-weight: 700;
     padding: 4em 3em 0em 1em;
-    margin-left: 20rem;
 }
+
 #contact body{
     position: absolute;
 }
@@ -590,6 +617,13 @@ footer ul {
         margin-right: 2.6rem;
         width: 47%;
         height: 60vh;
+    }
+
+    #inscription {
+        color:white;
+        background-image: url("../img/pont-alexandre-iii.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
     }
 }
 

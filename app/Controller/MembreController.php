@@ -52,6 +52,7 @@ class MembreController extends Controller
 			if (preg_match('/@/', $utilisateur['email']) && (preg_match('/[A-Z]/', $utilisateur['mdp']) && preg_match('/[0-9]/', $utilisateur['mdp']))) {
 				$utilisateur['mdp'] = password_hash($utilisateur['mdp'], PASSWORD_DEFAULT);
 				$insertion = $this->tableMembre->insert($utilisateur,true); //insert in database user informations
+				//$this->show('debug',['debug'=>$insertion]);
 				if(!$insertion) {
 					$_GET['erreur']=$insertion;
 					$this->redirectToRoute('inscription_msg', ['msg' => 'error']);// TODO : Envoyer les données MSG et TYPE
@@ -77,17 +78,18 @@ class MembreController extends Controller
 	}
 	
 	public function connexion() {
-		if(isset($_POST)) {
+		if(isset($_POST['connexion'])) {
 			$email = !empty($_POST['email']) ? strip_tags(trim($_POST['email'])) : '';
 			$mdp = !empty($_POST['mdp']) ? strip_tags(trim($_POST['mdp'])) : '';
 
 			$utilisateur = $this->validator->isValidLoginInfo($email,$mdp);
+			//$this->show('debug', ['debug' => $utilisateur]);
 			if($utilisateur == 'absent') {
 				$this->redirectToRoute('inscription_msg', ['msg' => 'no_email']);
 			} elseif($utilisateur > 0) {
 				// je recupere ses infos et redirige vers la page profil
 				$membre = $this->tableMembre->find($utilisateur);
-				$this->validator->logUserIn($membre); // je rempli la session membre avec les infos de l'utilisateur
+				$this->validator->logUserIn($membre); // je rempli la session membre avec les infos de l'utilisateur				
 				$this->redirect('profil'); //
 			} else { // je retourne interdit si le mot de passe ne correspond pas
 				$this->show('user/connexion', ['msg' => 'erreurs identifiants', 'id' => $utilisateur ]); // TODO : gestion de l'erreur identifiant
