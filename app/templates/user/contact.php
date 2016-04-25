@@ -15,9 +15,10 @@
 		require_once('header.php');
 	?>
 
-    <form id="connexion" method="POST" action="contact.php">
+    <form id="contact" method="POST" action="contact.php">
 	   	
-	   	<label>Sujet :</label><input type="text" name="sujet"/>
+	   	<label> Sujet :</label>
+		<input type="text" name="sujet"/>
 	   	<label>Email :</label><input type="text" name="sujet"/>
 		<label>Message :</label>
 		<textarea name="message"></textarea>

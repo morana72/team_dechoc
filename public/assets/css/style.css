@@ -255,18 +255,38 @@ iframe {
 
 /*-----------------------Connexion---------------------*/
 #connexion{
-    color:black;
+    color: black;
+    background-image: url("../img/quaimiterrand.jpg");
+    background-repeat: no-repeat;
+    background-size: 130rem;
+    background-position: center;
 }
 #connexion input {
     display: inline-block;
+    width: 108%;
+    height: 3.2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: black;
 }
 #connexion label{
     display: block;
+    color: white;
+    font-size: 2rem;
 }
 #connexion form{
     width:200px;
     margin: auto;
 
+}
+
+#connexion h1 {
+    margin-bottom: 13rem;
+    color: white;
+}
+
+#connexion input[type=submit] {
+    margin-top: 3rem;
 }
 
 /*-----------------------Inscription---------------------*/
@@ -281,7 +301,7 @@ iframe {
 }
 
 #inscription h2 {
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
     margin-top: 5rem;
     text-align: center;
 }
@@ -301,6 +321,7 @@ iframe {
 
 #inscription label{
     display: block;
+    color: slategray;
 }
 
 #inscription form{
@@ -318,7 +339,6 @@ iframe {
     margin-top: 2rem;
     background-color: whitesmoke;
 }
-
 /*-----------------footer generique--------------*/
 footer ul:first-of-type {
     padding-top: 1rem;
@@ -436,6 +456,32 @@ footer ul {
 
 /*-----------------------PageContact---------------------*/
 
+#contact {
+    color: white;
+    background-image: url("../img/pont_caroussel.jpg");
+    background-repeat: no-repeat;
+    background-size: 79rem;
+    background-position: center;
+}
+
+
+#contact form {
+    margin-top: 10rem;
+    width: 200px;
+    margin: auto;
+    background-image: none;
+    color: black;
+}
+
+#contact input {
+    display: inline-block;
+    width: 108%;
+    height: 3.2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: black;
+}
+
 #contact label {
 	display: inline-block;
     max-width: 100%;
@@ -446,36 +492,22 @@ footer ul {
 #contact body{
     position: absolute;
 }
-#contact label:last-of-type {
-	display: inline-block;
-    max-width: 100%;
-    margin-bottom: 9px;
-    font-weight: 700;
-    padding: 5em 3em 0em 1em;
-    margin: 0em -1em 3em 1em;
-    margin-left: 17rem;
-}
+
+
 
 #contact textarea {
-    margin-left: 2rem;
-    width: 30rem;
-    height: 20rem;
-    margin-top: 2rem;
-	    
+    width:108%;
+    margin-bottom: 7rem;
 }
 
-#contact input[type=submit] {   color: black;
-    color: black;
-    font-weight: 600;
-    font-size: 2rem;
-    padding: 0.5em 3em 0.5em 3em;
-    margin: 1em 6em 1em 1em;
-    /* margin: auto; */
-    margin-left: 30rem;
+#contact input[type=submit] {
 
  }
 
-
+#contact footer{
+    position: absolute;
+    bottom: 0;
+}
 
 /*----------------------------------Lovincy-----------------------------------*/
 
@@ -624,6 +656,21 @@ footer ul {
         background-image: url("../img/pont-alexandre-iii.jpg");
         background-repeat: no-repeat;
         background-size: 100%;
+    }
+
+    #connexion {
+        color:white;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    #contact {
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    
+    #contact label:last-of-type {
+        color: white;
     }
 }
 
