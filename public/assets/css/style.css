@@ -254,6 +254,7 @@ iframe {
 #connexion form{
     width:200px;
     margin: auto;
+
 }
 
 /*-----------------------Inscription---------------------*/
@@ -400,7 +401,7 @@ footer ul {
     max-width: 100%;
     font-weight: 700;
     padding: 4em 3em 0em 1em;
-    
+    margin-left: 20rem;
 }
 #contact body{
     position: absolute;
@@ -412,20 +413,29 @@ footer ul {
     font-weight: 700;
     padding: 5em 3em 0em 1em;
     margin: 0em -1em 3em 1em;
-  
+    margin-left: 17rem;
 }
 
 #contact textarea {
-	    margin: -6em 2em 6em 7em;
+    margin-left: 2rem;
+    width: 30rem;
+    height: 20rem;
+    margin-top: 2rem;
 	    
 }
 
 #contact input[type=submit] {   color: black;
+    color: black;
     font-weight: 600;
-    padding: 1em 1em 1em 1em;
+    font-size: 2rem;
+    padding: 0.5em 3em 0.5em 3em;
     margin: 1em 6em 1em 1em;
+    /* margin: auto; */
+    margin-left: 30rem;
 
  }
+
+
 
 /*----------------------------------Lovincy-----------------------------------*/
 
