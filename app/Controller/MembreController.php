@@ -17,7 +17,7 @@ class MembreController extends Controller
 	 * */
 	protected $tableMembre;
 	protected $validator;
-	protected $contact;
+
 
 
 	public function __construct()
@@ -25,7 +25,7 @@ class MembreController extends Controller
 		// au moment où j'appel le constructeur, j'instancie le representant de la table
 		$this->tableMembre = new MembreManager();
 		$this->validator = new AuthentificationManager();
-		$this->contact = new ContactManager();
+
 	}
 
 	/**
@@ -40,6 +40,8 @@ class MembreController extends Controller
 	public function afficherFormulaire() {
 		$this->show('user/inscription'); // j'appelle le template user/inscription.php
 	}
+
+	
 
 	public function enregistrerUtilisateur() {
 		if (isset($_POST['envoi'])) {
