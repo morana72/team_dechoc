@@ -5,6 +5,8 @@
 		['GET', '/about', 'Default#showAbout', 'about'],
 		['GET', '/mentions', 'Default#mentionsLegales', 'mentions'],
 		['GET|POST', '/contact', 'Default#showContact','contact'],
+		['POST', '/contact', 'Default#SendMessage','contact'],
+
 		// si je clic sur le formulaire d'inscription ou si je saisi l'url pour y arriver
 		// arguments :
 		// 1: GET ou POST (ou les deux), 2: URL saisie par l'internaute, 3: nom du controller # nom de sa méthode appelée, 4: nom de la route

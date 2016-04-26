@@ -39,9 +39,7 @@ class DefaultController extends Controller
 	}
 
 	public function showContact() {
-		if(isset($_POST['envoi'])){
 
-		}
 		$this->show('default/contact');
 	}
 

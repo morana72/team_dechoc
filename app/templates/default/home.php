@@ -161,7 +161,7 @@
 
         $('#formulaire').submit(function (event){
                 event.preventDefault();
-                google.maps.event.trigger(map_list, 'resize');
+                clearMarkers();
                 var checkbox_value = [];
                 $(":checkbox").each(function () {
 
