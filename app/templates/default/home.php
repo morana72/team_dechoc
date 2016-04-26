@@ -161,7 +161,6 @@
 
         $('#formulaire').submit(function (event){
                 event.preventDefault();
-                clearMarkers();
                 var checkbox_value = [];
                 $(":checkbox").each(function () {
 
@@ -183,7 +182,6 @@
                             afficherObjets('http:<?= $this->assetUrl('json/liste-passages.json')?>', '<?= $this->assetUrl('img/arch.png')?>', '<?= $this->assetUrl('img/passages')?>');
                         if (checkbox_value[i] == 'panoramas')
                             afficherObjets('http:<?= $this->assetUrl('json/liste-panoramas.json')?>', '<?= $this->assetUrl('img/panoramicview.png')?>', '<?= $this->assetUrl('img/img_panoramas')?>');
-
                     }
                 } else {
                     afficherObjets('http:<?= $this->assetUrl('json/liste_monuments.json')?>','<?= $this->assetUrl('img/monument-historique-icon-white-22x22.png')?>','<?= $this->assetUrl('img/img_monuments')?>');
