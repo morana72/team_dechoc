@@ -42,7 +42,9 @@ class DefaultController extends Controller
 
 		$this->show('default/contact');
 	}
-
+	public function SendMessage() {
+		$this->show('default/SendMessage');
+	}
 	public function mentionsLegales() {
 		$this->show('default/mentions');
 	}

@@ -5,7 +5,7 @@
 		['GET', '/about', 'Default#showAbout', 'about'],
 		['GET', '/mentions', 'Default#mentionsLegales', 'mentions'],
 		['GET|POST', '/contact', 'Default#showContact','contact'],
-		['POST', '/contact', 'Default#SendMessage','contact'],
+		//['POST', '/contact', 'Default#SendMessage','contact'],
 
 		// si je clic sur le formulaire d'inscription ou si je saisi l'url pour y arriver
 		// arguments :

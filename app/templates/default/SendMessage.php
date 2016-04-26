@@ -14,4 +14,6 @@ if(isset($_POST['envoi'])){
         'X-Mailer: PHP/' . phpversion();
 
     mail($to, $subject, $message, $headers);
+    $envoisMail=true;
+    unset($_POST);
 }
